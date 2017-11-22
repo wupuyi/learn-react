@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Popper extends React.Component{
+            constructor() {
+                super();
+                this.state = {name:'Hello, world!'};
+            }
+
+            preventPop(name, e) {
+                e.preventDefault();
+                alert(name);
+            }
+
+            render() {
+                return (
+                    <div>
+                        <p>Hello</p>    
+                        {/* Pass params via bind() method. */}
+                        <a href="https://reactjs.org" onClick = {this.preventPop.bind(this, this.state.name)}>Click</a>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <Popper />,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+
+</html>

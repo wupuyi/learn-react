@@ -1,0 +1,12 @@
+#app {
+    padding: 20px 100px;
+}
+
+.search {
+    width: 100%;
+    margin: 20px 0;
+    padding: 10px;
+    text-align: center;
+    border: 5px solid #a8d2d0;
+    font-size: 1.2em;
+}

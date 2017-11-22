@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function BoilingVerdict(props) {
+            if(props.celsius >= 100) {
+                return <p>水会烧开</p>;
+            }
+            return <p>水不会烧开</p>;
+        }
+
+        function toCelsius(fahrenheit) {
+            return (fahrenheit - 32) * 5 / 9;
+        }
+
+        function toFahrenheit(celsius) {
+            return (celsius * 9 / 5) + 32;
+        }
+
+        class Calculator extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <Temperature scale="c" />
+                        <Temperature scale="f" />
+                    </div>
+                );
+            }
+        }
+
+        cosnt scaleName = {
+            c: 'Celsius',
+            f: 'Fahrenheit'
+        };
+
+        class Temperature extends React.Component {
+            constructor(props) {
+                super(props);
+                this.handleChange = this.handleChange.bind(this);
+                this.state = {temperature: ''};
+            }
+
+            handleChange(e) {
+                this.setState({temperature: e.target.value});
+            }
+
+
+            render() {
+                const temperature = this.state.temperature;
+                const scale = this.props.scale;
+                return (
+                    <fieldset>
+                        <legend>Enter temperature in {scaleNames[scale]}:</legend>
+                        <input valie={temperature}
+                               onChange={this.handleChange} />
+                    </fieldset>
+                );
+            }
+        }
+    </script>
+</body>
+
+</html>
