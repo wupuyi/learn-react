@@ -8,6 +8,11 @@ import './index.css';
 // registerServiceWorker();
 
 class LikeButton extends Component {
+  static defaultProps = {
+    likedText: '取消',
+    unlikedText: '点赞'
+  }
+
   constructor () {
     super ()
     this.state = { isLiked: false }
@@ -22,7 +27,7 @@ class LikeButton extends Component {
   render () {
     return (
       <button onClick={this.handleClickOnLikeButton.bind(this)}>
-        {this.state.isLiked ? '取消' : '点赞'}👍
+        {this.state.isLiked ? this.props.likedText : this.props.unlikedText}👍
       </button>
     )
   }
