@@ -8,9 +8,14 @@ import './index.css';
 // registerServiceWorker();
 
 class Title extends Component {
+  handleClickOnTitle (word, e) {
+    console.log('Click on title.')
+    console.log(e.target.innerHTML)
+    console.log(this, word)
+  }
   render () {
     return (
-      <h1>React 小书</h1>
+      <h1 onClick={this.handleClickOnTitle.bind(this, 'Hello')}>React 小书</h1>
     )
   }
 }
