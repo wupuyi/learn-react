@@ -16,29 +16,49 @@ class Title extends Component {
 }
 
 class Header extends Component {
-
-  renderGoodWord (goodWord, badWord) {
-    const isGoodWord = true
-    return isGoodWord ? goodWord : badWord
-  }
-
   render () {
     return (
       <div>
-        <h1>
-          React 小书 
-          {this.renderGoodWord(
-            <strong> is good </strong>,
-            <span> is not good </span>
-          )
-          }
-        </h1>
+        <Title />
+        <h2>This is Header</h2>
+      </div>
+    )
+  }
+}
+
+class Main extends Component {
+  render () {
+    return (
+      <div>
+        <h2>This is main content</h2>
+      </div>
+    )
+  }
+}
+
+class Footer extends Component {
+  render () {
+    return (
+      <div>
+        <h2>This is footer</h2>
+      </div>
+    )
+  }
+}
+
+class Index extends Component {
+  render () {
+    return (
+      <div>
+        <Header />
+        <Main />
+        <Footer />
       </div>
     )
   }
 }
 
 ReactDOM.render(
-  <Header />,
+  <Index />,
   document.getElementById('root')
 )
