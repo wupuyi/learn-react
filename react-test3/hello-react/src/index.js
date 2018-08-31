@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import PercentNumber from './PercentNumber'
+import ComponentLife from './ComponentLife'
+import ShowClock from './ShowClock'
+import AutoFocusInput from './AutoFocusInput'
+import Card from './Card'
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
@@ -86,6 +90,16 @@ class Index extends Component {
           {users.map((user, i) => <User key={i} user={user} />)}
         </div>
         <PercentNumber />
+        <ComponentLife />
+        <ShowClock />
+        <AutoFocusInput />
+        <Card>
+          <div>
+            <h2>React.js 小书</h2>
+            <div>开源、免费、专业、简单</div>
+            订阅：<input />
+          </div>
+        </Card>
       </div>
     )
   }
