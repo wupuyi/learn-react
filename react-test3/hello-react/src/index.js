@@ -7,6 +7,7 @@ import ComponentLife from './ComponentLife'
 import ShowClock from './ShowClock'
 import AutoFocusInput from './AutoFocusInput'
 import Card from './Card'
+import Editor from './Editor'
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
@@ -100,6 +101,7 @@ class Index extends Component {
             订阅：<input />
           </div>
         </Card>
+        <Editor />
       </div>
     )
   }
