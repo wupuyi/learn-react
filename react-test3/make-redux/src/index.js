@@ -19,7 +19,7 @@
 // }
 
 // 观察者模式
-function createStore (reducer) {
+function createStore (state, action) {
   let state = null
   const listeners = []
   const subscribe = (listener) => listeners.push(listener)
