@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import ThemeSwitch from './ThemeSwitch'
 import { connect } from 'react-redux'
 
-class Header extends Component {
+class Content extends Component {
   static propTypes = {
     themeColor: PropTypes.string
   }
 
   render() {
     return (
-      <h1 style={{ color: this.props.themeColor }}>React.js 小书</h1>
+      <div>
+        <p style={{ color: this.props.themeColor }}>React.js 小书内容</p>
+        <ThemeSwitch />
+      </div>
     )
   }
 }
@@ -19,7 +23,4 @@ const mapStateToProps = (state) => {
     themeColor: state.themeColor
   }
 }
-
-Header = connect(mapStateToProps)(Header)
-
-export default Header
+export default connect(mapStateToProps)(Content)
