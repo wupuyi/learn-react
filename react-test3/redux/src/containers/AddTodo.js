@@ -7,7 +7,7 @@ let AddTodo = ({ dispatch }) => {
 
   return (
     <div>
-      <from
+      <form
         onSubmit={e => {
           e.preventDefault()
           if (!input.value.trim()) {
@@ -25,7 +25,7 @@ let AddTodo = ({ dispatch }) => {
         <button type="submit">
           Add Todo
         </button>
-      </from>
+      </form>
     </div>
   )
 }
