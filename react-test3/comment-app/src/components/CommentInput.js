@@ -1,27 +1,40 @@
 import React, { Component } from 'react'
-import PropTypes from 'proptypes'
+import PropTypes from 'prop-types'
 
 class CommentInput extends Component {
   static propTypes = {
-    onSubmit: PropTypes.func
+    username: PropTypes.any,
+    onSubmit: PropTypes.func,
+    onUserNameInputBlur: PropTypes.func
   }
 
-  constructor () {
-    super()
+  static defaultProps = {
+    username: ''
+  }
+
+  constructor (props) {
+    super(props)
     this.state = {
-      username: '',
+      username: props.username,   // 从props上取username字段
       content: ''
     }
   }
 
-  componentWillMount () {
-    this._loadUsername()
-  }
+  // componentWillMount () {
+  //   this._loadUsername()
+  // }
 
   componentDidMount () {
     this.textarea.focus()
   }
 
+  // 失去焦点时存储用户名
+  handleUsernameBlur(event) {
+    // this._saveUsername(event.target.value)
+    if (this.props.onUserNameInputBlur) {
+      this.props.onUserNameInputBlur(event.target.value)
+    }
+  }
   // 用户名
   handleUsernameChange (event) {
     this.setState({
@@ -47,21 +60,16 @@ class CommentInput extends Component {
     this.setState({ content: '' })
   }
 
-  _loadUsername () {
-    const username = localStorage.getItem('username')
-    if (username) {
-      this.setState({ username })
-    }
-  }
+  // _loadUsername () {
+  //   const username = localStorage.getItem('username')
+  //   if (username) {
+  //     this.setState({ username })
+  //   }
+  // }
 
-  _saveUsername (username) {
-    localStorage.setItem('username', username)
-  }
-
-  // 失去焦点时存储用户名
-  handleUsernameBlur (event) {
-    this._saveUsername(event.target.value)
-  }
+  // _saveUsername (username) {
+  //   localStorage.setItem('username', username)
+  // }
 
   render () {
     return (
